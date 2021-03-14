@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+<head>
+   
+<title>CautiousExplorer</title></head>
+    
+<body>
+<div id="top">
+<h1>Lab ISS | the project cautiousExplorer<font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+This case-study starts to deal with the design and development of proactive/reactive software systems that use aynchronous exchange of information.
+ 
+<h2>Requirements</h2>
+
+ 
+<div class="remark">
+Design and build a software system that allow the robot described in 
+<a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html" target="lab"><em>VirtualRobot2021.html</em></a>
+ to exibit the following behaviour:
+<ul>
+<li>the robot lives in a closed environment, delimited by walls that includes one or more devices (e.g. sonar) able to detect its presence;</li>
+<li>the robot has a <ks>den</ks> for refuge, located near a wall;</li>
+<li>the robot works as an <i>explorer of the environment</i>. Starting from its <ks>den</ks>,  the robot moves
+(either randomly or - preferably - in a more organized way) with the aim to find the fixed obstacles around the <ks>den</ks>. 
+The presence of mobile obstacles is (at the moment) excluded;</li>
+<li>since the robot is <i>'cautious'</i>,  it  returns immediately to the <ks>den</ks> as soon as it finds an obstacle.
+Optionally, it should also return to the <ks>den</ks> when a sonar detects its presence;
+</li>
+<li>the robot should remember the position of the obstacles found, by creating a sort of 'mental map' of the environment.</li>
+</ul>
+</div>
+
+ <h3>Delivery</h3>
+The customer requires to receive the completion of the analysis (of the requirments and of the problem)  by <k>Friday 12 March</k>. 
+Hopefully, he/she expects to receive also (in the same document) some detail about the project.<br/>
+The name of the file (in pdf) should be:
+<pre>
+cognome_nome_ce.pdf
+</pre>
+
+<h2>Requirement analysis</h2>
+ 
+Our <b>interaction with the custom</b> ha clarified that the customer intends:
+<ul>
+<li>for <ks>room</ks>: a conventional (rectangular) room of an house;</li>
+<li>for <ks>closed environment</ks>: the room has a perimeter, that is physically delimited by solid <ks>walls</ks>;</li>
+<li>for <ks>robot</ks>: a device able to execute move commands sent over the network, as described in the document
+<a href="VirtualRobot2021.html#commands" target="web"><em>VirtualRobot2021.html</em></a> provided by the customer; 
+<li>for <ks>den</ks>: starting point of the robot , it could be everywhere inside the room. </li>
+<li>for <ks>obstacle</ks>: something that do not allows robot to move through, walls are thinked as obstacle. </li>
+<li>for <ks>return</ks>: ability to come back to den. </li>
+</li>
+
+The customer does not impose any requirement on the programming language used to develop the application.
+
+</div>
+
+<h2>Problem analysis</h2>
+
+We highlight that:
+<ol>
+<li>In the <a href="VirtualRobot2021.html#commands" target="web">VirtualRobot2021.html: commands</a> the customer states
+that the robot can receive move commands in this way:
+	<ul>
+		<li>by sending messages to the port <tt>8090</tt> using  <ks>HTTP POST</ks> </li>
+	</ul>
+</li>
+ 
+<li> With respect to the technological level, there are many libraries in many programming languages that support the required protocols. 
+	<div class="remark">
+		However, the problem does introduce an <k>abstraction gap at the conceptual level</k>, since <kc>the required logical interaction</kc> is always a <em>request-response</em>, <b>regardless of the technology</b> used to implement the interaction with the robot.
+	</div>
+</li>
+<li> 
+	The Exploration Strategy is vital to detect object.At this point random approch is exclude  , better focus on a exaustive predictable approch. Too close to call better one.
+</li>
+<li> 
+	The need to return to den open the door to multiple solution. It's possible to use  : stack , oriented graph or tree structure. Too close to call the best way.
+</li>
+<li> 
+	How we know robot come back correctly to den? At this point it's not possible give an answer. 
+</li>
+ 
+</ol>
+
+<h3>Logical architecture</h3>
+ 
+<table style="width:98%">
+<tbody>	
+<tr>
+<td style="width:60%">
+We nust design and build a <k>distributed system</k> with two software macro-components:
+	<ol>
+	<li>the <a href="VirtualRobot2021.html" target="web"><ks>VirtualRobot</ks></a>, given by the customer</li>
+	<li>our <ks>cautiousExplorer</ks> application that interacts with the robot with a <i>request-response</i> pattern</li>
+	</ol>
+A first scheme of the logical architecture  of the systems can be defined as shown in the figure
+(for the meaning of the symbols, see the <a href="./img/legenda0.png" target="web">legenda</a>)
+
+</td>
+<td>  <center><img src="./img/logicArch2.png" alt="logicArch2" width="100%" ></center>
+</td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+We observe that:
+<ul>
+<li>The specification of the exact 'nature' of our <em>cautiousExplorer</em> software is left to the designer. However, we have enought experience with previous projects that will be a java application..  
+<li>To make our <em>cautiousExplorer</em> software <k>as much as possibile independent</k> from the undelying communication protocols,
+the designer could make reference to proper <a href="https://it.wikipedia.org/wiki/Design_pattern" target="web"><em>design pattern</em></a>, 
+e.g.
+<a href="https://it.wikipedia.org/wiki/Adapter_pattern" target="web"><ks>Adapter</ks></a>, 
+<a href="https://it.wikipedia.org/wiki/Bridge_pattern" target="web"><ks>Bridge</ks></a>,
+<a href="https://it.wikipedia.org/wiki/Fa%C3%A7ade_pattern" target="web"><ks>Facade</ks></a>.
+ </li>
+<li>
+In order to define <k>what the robot has to do</k> software must the meet the requirements:
+<pre>
+We must define <kc>MemoryPath</kc> class related to the ability to remember the path of the robot.
+The robot start in the den position with known orientation(or direction)
+We must define an <kc>Exploration Strategy</kc> , and a <kc>ExplorationStrategy</kc> class . 
+</pre>
+</li>
+
+</ul>
+ 
+
+<h2>Test plans</h2> 
+
+To check that the application fulfills the requirements, we set an exploration strategy and after a collision the robot come back.
+
+At this point is not possible to write a test plan. 
+
+<h2>Project</h2> 
+ 
+</div>
+
+<h2>Testing</h2> 
+ 
+
+<h2>Deployment</h2> 
+
+ 
+<h2>Maintenance</h2> 
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+ QUESTIONS:
+chiarisce cosa il committente intende con 'Optionally'  
+chiarisce cosa il committente intende con 'should remember' 
+chiarisce cosa il committente intende con 'mental map'
+definisce una user story adeguata ai TUTTI i requisiti (anche opzionali)
+discute se sia meglio avvalersi di HTTP o delle websocket e perchè
+discute se sia meglio usare il linguaggio di comando cril, aril (o altro) e perchè
+discute possibili strategie di esplorazione dello spazio
+discute possibili aspetti della fase di ritorno alla den
+presenta un TestPlan concreto (e non un insieme di intenti)
+propone diverse tipologie di scene/situazioni per il testing
+propone una lista di priorità per i requisiti 
+presenta una stima dei tempi di realizzazione 
+presenta un elenco delle risorse che sarebbe opportuno avere
+presenta una architettura di progetto
+prevede di muovere il robot in modo random
+presenta dettagli di progetto che permettono una precisa implementazione da parte di chi legge
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+By studentName email: ugo.marchesini@studio.unibo.it  
+<img src="./img/fotoiss.3.png" alt="mbot" width="15%" height="15%">
+</div> 
+</body>
+</html>
